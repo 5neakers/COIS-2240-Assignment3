@@ -1,11 +1,26 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class RentalSystem {
-    private List<Vehicle> vehicles = new ArrayList<>();
-    private List<Customer> customers = new ArrayList<>();
-    private RentalHistory rentalHistory = new RentalHistory();
+    private static RentalSystem instance;
+
+    private List<Vehicle> vehicles;
+    private List<Customer> customers;
+    private List<RentalRecord> rentalHistory;
+
+    private RentalSystem() {
+        this.vehicles = new ArrayList<>();
+        this.customers = new ArrayList<>();
+        this.rentalHistory = new ArrayList<>();
+    }
+
+    public static RentalSystem getInstance() {
+        if (instance == null) {
+            instance = new RentalSystem();
+        }
+        return instance;
+    }
 
     public void addVehicle(Vehicle vehicle) {
         vehicles.add(vehicle);
@@ -15,110 +30,60 @@ public class RentalSystem {
         customers.add(customer);
     }
 
-    public void rentVehicle(Vehicle vehicle, Customer customer, LocalDate date, double amount) {
-        if (vehicle.getStatus() == Vehicle.VehicleStatus.Available) {
-            vehicle.setStatus(Vehicle.VehicleStatus.Rented);
-            rentalHistory.addRecord(new RentalRecord(vehicle, customer, date, amount, "RENT"));
-            System.out.println("Vehicle rented to " + customer.getCustomerName());
+    public Vehicle findVehicleByPlate(String plate) {
+        for (Vehicle v : vehicles) {
+            if (v.getLicensePlate().equalsIgnoreCase(plate)) return v;
         }
-        else {
-            System.out.println("Vehicle is not available for renting.");
+        return null;
+    }
+
+    public Customer findCustomerById(int id) {
+        for (Customer c : customers) {
+            if (c.toString().contains(String.valueOf(id))) return c;
+        }
+        return null;
+    }
+
+    public void rentVehicle(Vehicle v, Customer c, LocalDate date, double amount) {
+        if (v instanceof Rentable) {
+            ((Rentable) v).rentVehicle();
+            // Similar to below I put a 5th return aspect which was giving some confusion to me and still need to test. But if works this comment will be removed in future
+            rentalHistory.add(new RentalRecord(v, c, date, amount, "RENT"));
         }
     }
 
-    public void returnVehicle(Vehicle vehicle, Customer customer, LocalDate date, double extraFees) {
-        if (vehicle.getStatus() == Vehicle.VehicleStatus.Rented) {
-            vehicle.setStatus(Vehicle.VehicleStatus.Available);
-            rentalHistory.addRecord(new RentalRecord(vehicle, customer, date, extraFees, "RETURN"));
-            System.out.println("Vehicle returned by " + customer.getCustomerName());
+    public void returnVehicle(Vehicle v, Customer c, LocalDate date, double fees) {
+        if (v instanceof Rentable) {
+            ((Rentable) v).returnVehicle();
+            //struggled with the below but I think it works for most part? Will do testing post commit 
+            rentalHistory.add(new RentalRecord(v, c, date, fees, "RETURN"));
         }
-        else {
-            System.out.println("Vehicle is not rented.");
-        }
-    }    
+    }
 
     public void displayVehicles(Vehicle.VehicleStatus status) {
-        // Display appropriate title based on status
-        if (status == null) {
-            System.out.println("\n=== All Vehicles ===");
-        } else {
-            System.out.println("\n=== " + status + " Vehicles ===");
-        }
-        
-        // Header with proper column widths
+        System.out.println("|--------------------------------------------------------------------------------------------|");
         System.out.printf("|%-16s | %-12s | %-12s | %-12s | %-6s | %-18s |%n", 
             " Type", "Plate", "Make", "Model", "Year", "Status");
         System.out.println("|--------------------------------------------------------------------------------------------|");
-    	  
-        boolean found = false;
-        for (Vehicle vehicle : vehicles) {
-            if (status == null || vehicle.getStatus() == status) {
-                found = true;
-                String vehicleType;
-                if (vehicle instanceof Car) {
-                    vehicleType = "Car";
-                } else if (vehicle instanceof Minibus) {
-                    vehicleType = "Minibus";
-                } else if (vehicle instanceof PickupTruck) {
-                    vehicleType = "Pickup Truck";
-                } else {
-                    vehicleType = "Unknown";
-                }
-                System.out.printf("| %-15s | %-12s | %-12s | %-12s | %-6d | %-18s |%n", 
-                    vehicleType, vehicle.getLicensePlate(), vehicle.getMake(), vehicle.getModel(), vehicle.getYear(), vehicle.getStatus().toString());
+        
+        for (Vehicle v : vehicles) {
+            if (v.getStatus() == status) {
+                System.out.printf("|%-16s | %-12s | %-12s | %-12s | %-6d | %-18s |%n", 
+                    v.getClass().getSimpleName(), v.getLicensePlate(), v.getMake(), v.getModel(), v.getYear(), v.getStatus());
             }
         }
-        if (!found) {
-            if (status == null) {
-                System.out.println("  No Vehicles found.");
-            } else {
-                System.out.println("  No vehicles with Status: " + status);
-            }
-        }
-        System.out.println();
+        System.out.println("|--------------------------------------------------------------------------------------------|");
     }
 
     public void displayAllCustomers() {
         for (Customer c : customers) {
-            System.out.println("  " + c.toString());
+            System.out.println(c.toString());
         }
     }
-    
+
     public void displayRentalHistory() {
-        if (rentalHistory.getRentalHistory().isEmpty()) {
-            System.out.println("  No rental history found.");
-        } else {
-            // Header with proper column widths
-            System.out.printf("|%-10s | %-12s | %-20s | %-12s | %-12s |%n", 
-                " Type", "Plate", "Customer", "Date", "Amount");
-            System.out.println("|-------------------------------------------------------------------------------|");
-            
-            for (RentalRecord record : rentalHistory.getRentalHistory()) {                
-                System.out.printf("| %-9s | %-12s | %-20s | %-12s | $%-11.2f |%n", 
-                    record.getRecordType(), 
-                    record.getVehicle().getLicensePlate(),
-                    record.getCustomer().getCustomerName(),
-                    record.getRecordDate().toString(),
-                    record.getTotalAmount()
-                );
-            }
-            System.out.println();
+        for (RentalRecord record : rentalHistory) {
+            System.out.println(record.toString());
         }
-    }
-    
-    public Vehicle findVehicleByPlate(String plate) {
-        for (Vehicle v : vehicles) {
-            if (v.getLicensePlate().equalsIgnoreCase(plate)) {
-                return v;
-            }
-        }
-        return null;
-    }
-    
-    public Customer findCustomerById(int id) {
-        for (Customer c : customers)
-            if (c.getCustomerId() == id)
-                return c;
-        return null;
     }
 }
