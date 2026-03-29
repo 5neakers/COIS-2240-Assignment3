@@ -5,3 +5,7 @@ RETURN | Plate: CCC333 | Customer: George | Date: 2026-03-29 | Amount: $5.0
 RENT | Plate: CCC333 | Customer: Anne | Date: 2026-03-29 | Amount: $10.0
 RENT | Plate: TEST-123 | Customer: Alice | Date: 2026-03-29 | Amount: $50.0
 RENT | Plate: TEST-123 | Customer: Alice | Date: 2026-03-29 | Amount: $50.0
+RENT | Plate: ABC123 | Customer: Steve French | Date: null | Amount: $100.0
+RETURN | Plate: ABC123 | Customer: Steve French | Date: null | Amount: $0.0
+RENT | Plate: BOO413 | Customer: Steve French | Date: null | Amount: $100.0
+RETURN | Plate: BOO413 | Customer: Steve French | Date: null | Amount: $0.0

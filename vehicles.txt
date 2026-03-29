@@ -1,3 +1,0 @@
-Car,AAA111,Toyota,Corolla,2019,Rented,5
-Car,TEST-123,Toyota,Corolla,2022,Rented,5
-Car,UNIQUE-1,Honda,Civic,2023,Available,5
