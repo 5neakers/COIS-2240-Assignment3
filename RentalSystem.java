@@ -165,11 +165,17 @@ public class RentalSystem {
         }
         return null;
     }
-
-    public void rentVehicle(Vehicle v, Customer c, LocalDate date, double amount) {
+  //modified below in this commit to allow for the ability for the vehicle to NOT be rented if already rented 
+    public void rentVehicle(Vehicle v, Customer c, LocalDate date, double amount) throws IOException {
         if (v instanceof Rentable) {
+        	// below is specific if statement to determine if vehicle has already been rented or not 
+            if (v.getStatus() != Vehicle.VehicleStatus.Available) {
+                System.out.println("Vehicle can currently is already being rented :(");
+                return; 
+            }
+
             ((Rentable) v).rentVehicle();
-            // Similar to below I put a 5th return aspect which was giving some confusion to me and still need to test. But if works this comment will be removed in future
+            
             RentalRecord record = new RentalRecord(v, c, date, amount, "RENT");
             rentalHistory.add(record);
             saveRecord(record);
@@ -178,7 +184,9 @@ public class RentalSystem {
                 for (Vehicle vehicle : vehicles) {
                     saveVehicleOverride(writer, vehicle);
                 }
-            } catch (IOException e) { System.out.println("Error updating vehicles file."); }
+            } catch (IOException e) {
+                System.out.println("Error updating vehicles file.");
+            }
         }
     }
 

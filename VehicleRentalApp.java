@@ -1,8 +1,9 @@
 import java.util.Scanner;
+import java.io.IOException;
 import java.time.LocalDate;
 
 public class VehicleRentalApp {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException { //had to add throws exception to to implementation of this in the actual rental system 
         Scanner scanner = new Scanner(System.in);
         
         // create a single instance for singleton 
