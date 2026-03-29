@@ -130,14 +130,26 @@ public class RentalSystem {
         } catch (IOException e) { System.out.println("Error saving record."); }
     }
 
-    public void addVehicle(Vehicle vehicle) {
+    public boolean addVehicle(Vehicle vehicle) {
+        // standard if statement and using existing methods to see if the plate already exists 
+        if (findVehicleByPlate(vehicle.getLicensePlate()) != null) {
+            System.out.println("Can't add the vehicle as it already in the system");
+            return false;
+        }
         vehicles.add(vehicle);
         saveVehicle(vehicle); 
+        return true;
     }
 
-    public void addCustomer(Customer customer) {
+    public boolean addCustomer(Customer customer) {
+        // similar to above utilizing existing methods to see if customer already exists
+        if (findCustomerById(customer.getCustomerId()) != null) {
+            System.out.println("Can;t add the customer as they already exist in the system!");
+            return false;
+        }
         customers.add(customer);
         saveCustomer(customer);
+        return true;
     }
 
     public Vehicle findVehicleByPlate(String plate) {
