@@ -50,11 +50,20 @@ public class VehicleRentalApp {
                     } else {
                         vehicle = null;
                     }
-                    
                     if (vehicle != null) {
-                        vehicle.setLicensePlate(plate);
-                        rentalSystem.addVehicle(vehicle);
-                        System.out.println("Vehicle added successfully.");
+                    	//added try catch to ensure that plate matches criteria 
+                        try { 
+                           
+                            vehicle.setLicensePlate(plate);
+                            if (rentalSystem.addVehicle(vehicle)) { // Only add if plate valid 
+                                System.out.println("Vehicle added successfully.");
+                            } else {
+                                System.out.println("Cannot add vehicle as plate already in our system.");
+                            }
+                        } catch (IllegalArgumentException e) {
+                            System.out.println(e.getMessage()); //print error message due to not being added 
+                            System.out.println("Returning to main menu...");
+                        }
                     }
                     break;
 
