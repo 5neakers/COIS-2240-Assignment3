@@ -1,0 +1,527 @@
+Task 1-6:
+Note that the first test there was clearly some issues as I was allowed to rent the vehicle. The print was properly showing that no vehicles were available to rent so the issue is clearly allowing multiple vehicles to be rented. So important to note the first test is not the "perfect" result and I will delete respective .txt that were included try and fix code and then rerun and include a second. Also for things like number of seats accessibility fees etc. I just chose random numbers. Nothing was specified so went with random. 
+
+
+1: Add Vehicle
+2: Add Customer
+3: Rent Vehicle
+4: Return Vehicle
+5: Display Available Vehicles
+6: Show Rental History
+0: Exit
+
+2
+Enter customer ID: 001
+Enter name: George
+Customer added successfully.
+
+1: Add Vehicle
+2: Add Customer
+3: Rent Vehicle
+4: Return Vehicle
+5: Display Available Vehicles
+6: Show Rental History
+0: Exit
+
+2
+Enter customer ID: 002
+Enter name: Anne
+Customer added successfully.
+
+1: Add Vehicle
+2: Add Customer
+3: Rent Vehicle
+4: Return Vehicle
+5: Display Available Vehicles
+6: Show Rental History
+0: Exit
+
+1
+  1: Car
+  2: Minibus
+  3: Pickup Truck
+1
+Enter license plate: AAA111
+Enter make: Toyota
+Enter model: Corolla
+Enter year: 2019
+Enter number of seats: 5
+Vehicle added successfully.
+
+1: Add Vehicle
+2: Add Customer
+3: Rent Vehicle
+4: Return Vehicle
+5: Display Available Vehicles
+6: Show Rental History
+0: Exit
+
+1
+  1: Car
+  2: Minibus
+  3: Pickup Truck
+2
+Enter license plate: BBB222
+Enter make: Honda
+Enter model: Civic
+Enter year: 2021
+Is accessible? (true/false): true
+Vehicle added successfully.
+
+1: Add Vehicle
+2: Add Customer
+3: Rent Vehicle
+4: Return Vehicle
+5: Display Available Vehicles
+6: Show Rental History
+0: Exit
+
+1
+  1: Car
+  2: Minibus
+  3: Pickup Truck
+3
+Enter license plate: CCC333
+Enter make: Ford
+Enter model: Focus
+Enter year: 2024
+Enter the cargo size: 10
+Has trailer? (true/false): false
+Vehicle added successfully.
+
+1: Add Vehicle
+2: Add Customer
+3: Rent Vehicle
+4: Return Vehicle
+5: Display Available Vehicles
+6: Show Rental History
+0: Exit
+
+3
+|--------------------------------------------------------------------------------------------|
+| Type            | Plate        | Make         | Model        | Year   | Status             |
+|--------------------------------------------------------------------------------------------|
+|Car              | AAA111       | Toyota       | Corolla      | 2019   | Available          |
+|Minibus          | BBB222       | Honda        | Civic        | 2021   | Available          |
+|PickupTruck      | CCC333       | Ford         | Focus        | 2024   | Available          |
+|--------------------------------------------------------------------------------------------|
+Enter license plate: AAA111
+Registered Customers:
+Customer ID: 1 | Name: George
+Customer ID: 2 | Name: Anne
+Enter customer ID: 1
+Enter rental amount: 3.50
+Car AAA111 has been rented.
+
+1: Add Vehicle
+2: Add Customer
+3: Rent Vehicle
+4: Return Vehicle
+5: Display Available Vehicles
+6: Show Rental History
+0: Exit
+
+3
+|--------------------------------------------------------------------------------------------|
+| Type            | Plate        | Make         | Model        | Year   | Status             |
+|--------------------------------------------------------------------------------------------|
+|Minibus          | BBB222       | Honda        | Civic        | 2021   | Available          |
+|PickupTruck      | CCC333       | Ford         | Focus        | 2024   | Available          |
+|--------------------------------------------------------------------------------------------|
+Enter license plate: CCC333
+Registered Customers:
+Customer ID: 1 | Name: George
+Customer ID: 2 | Name: Anne
+Enter customer ID: 1
+Enter rental amount: 4
+Pickup Truck CCC333 has been rented.
+
+1: Add Vehicle
+2: Add Customer
+3: Rent Vehicle
+4: Return Vehicle
+5: Display Available Vehicles
+6: Show Rental History
+0: Exit
+
+3
+|--------------------------------------------------------------------------------------------|
+| Type            | Plate        | Make         | Model        | Year   | Status             |
+|--------------------------------------------------------------------------------------------|
+|Minibus          | BBB222       | Honda        | Civic        | 2021   | Available          |
+|--------------------------------------------------------------------------------------------|
+Enter license plate: BBB222
+Registered Customers:
+Customer ID: 1 | Name: George
+Customer ID: 2 | Name: Anne
+Enter customer ID: 2
+Enter rental amount: 5
+Minibus BBB222 has been rented.
+
+1: Add Vehicle
+2: Add Customer
+3: Rent Vehicle
+4: Return Vehicle
+5: Display Available Vehicles
+6: Show Rental History
+0: Exit
+
+3
+|--------------------------------------------------------------------------------------------|
+| Type            | Plate        | Make         | Model        | Year   | Status             |
+|--------------------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------|
+Enter license plate: CCC333
+Registered Customers:
+Customer ID: 1 | Name: George
+Customer ID: 2 | Name: Anne
+Enter customer ID: 2
+Enter rental amount: 6
+Pickup Truck CCC333 has been rented.
+
+1: Add Vehicle
+2: Add Customer
+3: Rent Vehicle
+4: Return Vehicle
+5: Display Available Vehicles
+6: Show Rental History
+0: Exit
+
+4
+|--------------------------------------------------------------------------------------------|
+| Type            | Plate        | Make         | Model        | Year   | Status             |
+|--------------------------------------------------------------------------------------------|
+|Car              | AAA111       | Toyota       | Corolla      | 2019   | Rented             |
+|Minibus          | BBB222       | Honda        | Civic        | 2021   | Rented             |
+|PickupTruck      | CCC333       | Ford         | Focus        | 2024   | Rented             |
+|--------------------------------------------------------------------------------------------|
+Enter license plate: CCC333
+Registered Customers:
+Customer ID: 1 | Name: George
+Customer ID: 2 | Name: Anne
+Enter customer ID: 1
+Enter return fees: 4
+Pickup Truck CCC333 has been returned.
+
+1: Add Vehicle
+2: Add Customer
+3: Rent Vehicle
+4: Return Vehicle
+5: Display Available Vehicles
+6: Show Rental History
+0: Exit
+
+3
+|--------------------------------------------------------------------------------------------|
+| Type            | Plate        | Make         | Model        | Year   | Status             |
+|--------------------------------------------------------------------------------------------|
+|PickupTruck      | CCC333       | Ford         | Focus        | 2024   | Available          |
+|--------------------------------------------------------------------------------------------|
+Enter license plate: CCC333
+Registered Customers:
+Customer ID: 1 | Name: George
+Customer ID: 2 | Name: Anne
+Enter customer ID: 2
+Enter rental amount: 10
+Pickup Truck CCC333 has been rented.
+
+1: Add Vehicle
+2: Add Customer
+3: Rent Vehicle
+4: Return Vehicle
+5: Display Available Vehicles
+6: Show Rental History
+0: Exit
+
+5
+|--------------------------------------------------------------------------------------------|
+| Type            | Plate        | Make         | Model        | Year   | Status             |
+|--------------------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------|
+
+1: Add Vehicle
+2: Add Customer
+3: Rent Vehicle
+4: Return Vehicle
+5: Display Available Vehicles
+6: Show Rental History
+0: Exit
+
+6
+RENT | Plate: AAA111 | Customer: George | Date: 2026-03-29 | Amount: $3.5
+RENT | Plate: CCC333 | Customer: George | Date: 2026-03-29 | Amount: $4.0
+RENT | Plate: BBB222 | Customer: Anne | Date: 2026-03-29 | Amount: $5.0
+RENT | Plate: CCC333 | Customer: Anne | Date: 2026-03-29 | Amount: $6.0
+RETURN | Plate: CCC333 | Customer: George | Date: 2026-03-29 | Amount: $4.0
+RENT | Plate: CCC333 | Customer: Anne | Date: 2026-03-29 | Amount: $10.0
+
+1: Add Vehicle
+2: Add Customer
+3: Rent Vehicle
+4: Return Vehicle
+5: Display Available Vehicles
+6: Show Rental History
+0: Exit
+
+FOLLOWING this is next time I got it to actually properly work after troubleshooting and adding some extra lines and try/catch for if vehicle was already rented:
+
+
+1: Add Vehicle
+2: Add Customer
+3: Rent Vehicle
+4: Return Vehicle
+5: Display Available Vehicles
+6: Show Rental History
+0: Exit
+
+2
+Enter customer ID: 001
+Enter name: George
+Customer added successfully.
+
+1: Add Vehicle
+2: Add Customer
+3: Rent Vehicle
+4: Return Vehicle
+5: Display Available Vehicles
+6: Show Rental History
+0: Exit
+
+2
+Enter customer ID: 002
+Enter name: Anne
+Customer added successfully.
+
+1: Add Vehicle
+2: Add Customer
+3: Rent Vehicle
+4: Return Vehicle
+5: Display Available Vehicles
+6: Show Rental History
+0: Exit
+
+1
+  1: Car
+  2: Minibus
+  3: Pickup Truck
+1
+Enter license plate: AAA111
+Enter make: Toyota
+Enter model: Corolla
+Enter year: 2019
+Enter number of seats: 5
+Vehicle added successfully.
+
+1: Add Vehicle
+2: Add Customer
+3: Rent Vehicle
+4: Return Vehicle
+5: Display Available Vehicles
+6: Show Rental History
+0: Exit
+
+1
+  1: Car
+  2: Minibus
+  3: Pickup Truck
+2
+Enter license plate: BBB222
+Enter make: Honda
+Enter model: Civic
+Enter year: 2021
+Is accessible? (true/false): false
+Vehicle added successfully.
+
+1: Add Vehicle
+2: Add Customer
+3: Rent Vehicle
+4: Return Vehicle
+5: Display Available Vehicles
+6: Show Rental History
+0: Exit
+
+1
+  1: Car
+  2: Minibus
+  3: Pickup Truck
+3
+Enter license plate: CCC333
+Enter make: Ford
+Enter model: Focus
+Enter year: 2024
+Enter the cargo size: 10
+Has trailer? (true/false): True
+Vehicle added successfully.
+
+1: Add Vehicle
+2: Add Customer
+3: Rent Vehicle
+4: Return Vehicle
+5: Display Available Vehicles
+6: Show Rental History
+0: Exit
+
+3
+|--------------------------------------------------------------------------------------------|
+| Type            | Plate        | Make         | Model        | Year   | Status             |
+|--------------------------------------------------------------------------------------------|
+|Car              | AAA111       | Toyota       | Corolla      | 2019   | Available          |
+|Minibus          | BBB222       | Honda        | Civic        | 2021   | Available          |
+|PickupTruck      | CCC333       | Ford         | Focus        | 2024   | Available          |
+|--------------------------------------------------------------------------------------------|
+Enter license plate: AAA111
+Registered Customers:
+Customer ID: 1 | Name: George
+Customer ID: 2 | Name: Anne
+Enter customer ID: 1
+Enter rental amount: 10
+Car AAA111 has been rented.
+
+1: Add Vehicle
+2: Add Customer
+3: Rent Vehicle
+4: Return Vehicle
+5: Display Available Vehicles
+6: Show Rental History
+0: Exit
+
+3
+|--------------------------------------------------------------------------------------------|
+| Type            | Plate        | Make         | Model        | Year   | Status             |
+|--------------------------------------------------------------------------------------------|
+|Minibus          | BBB222       | Honda        | Civic        | 2021   | Available          |
+|PickupTruck      | CCC333       | Ford         | Focus        | 2024   | Available          |
+|--------------------------------------------------------------------------------------------|
+Enter license plate: CCC333
+Registered Customers:
+Customer ID: 1 | Name: George
+Customer ID: 2 | Name: Anne
+Enter customer ID: 1
+Enter rental amount: 3
+Pickup Truck CCC333 has been rented.
+
+1: Add Vehicle
+2: Add Customer
+3: Rent Vehicle
+4: Return Vehicle
+5: Display Available Vehicles
+6: Show Rental History
+0: Exit
+
+3
+|--------------------------------------------------------------------------------------------|
+| Type            | Plate        | Make         | Model        | Year   | Status             |
+|--------------------------------------------------------------------------------------------|
+|Minibus          | BBB222       | Honda        | Civic        | 2021   | Available          |
+|--------------------------------------------------------------------------------------------|
+Enter license plate: BBB222
+Registered Customers:
+Customer ID: 1 | Name: George
+Customer ID: 2 | Name: Anne
+Enter customer ID: 2
+Enter rental amount: 4
+Minibus BBB222 has been rented.
+
+1: Add Vehicle
+2: Add Customer
+3: Rent Vehicle
+4: Return Vehicle
+5: Display Available Vehicles
+6: Show Rental History
+0: Exit
+
+3
+|--------------------------------------------------------------------------------------------|
+| Type            | Plate        | Make         | Model        | Year   | Status             |
+|--------------------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------|
+Enter license plate: CCC333
+Registered Customers:
+Customer ID: 1 | Name: George
+Customer ID: 2 | Name: Anne
+Enter customer ID: 2
+Enter rental amount: 10
+Vehicle can currently is already being rented :(
+
+1: Add Vehicle
+2: Add Customer
+3: Rent Vehicle
+4: Return Vehicle
+5: Display Available Vehicles
+6: Show Rental History
+0: Exit
+
+4
+|--------------------------------------------------------------------------------------------|
+| Type            | Plate        | Make         | Model        | Year   | Status             |
+|--------------------------------------------------------------------------------------------|
+|Car              | AAA111       | Toyota       | Corolla      | 2019   | Rented             |
+|Minibus          | BBB222       | Honda        | Civic        | 2021   | Rented             |
+|PickupTruck      | CCC333       | Ford         | Focus        | 2024   | Rented             |
+|--------------------------------------------------------------------------------------------|
+Enter license plate: CCC333
+Registered Customers:
+Customer ID: 1 | Name: George
+Customer ID: 2 | Name: Anne
+Enter customer ID: 1
+Enter return fees: 5
+Pickup Truck CCC333 has been returned.
+
+1: Add Vehicle
+2: Add Customer
+3: Rent Vehicle
+4: Return Vehicle
+5: Display Available Vehicles
+6: Show Rental History
+0: Exit
+
+3
+|--------------------------------------------------------------------------------------------|
+| Type            | Plate        | Make         | Model        | Year   | Status             |
+|--------------------------------------------------------------------------------------------|
+|PickupTruck      | CCC333       | Ford         | Focus        | 2024   | Available          |
+|--------------------------------------------------------------------------------------------|
+Enter license plate: CCC333
+Registered Customers:
+Customer ID: 1 | Name: George
+Customer ID: 2 | Name: Anne
+Enter customer ID: 2
+Enter rental amount: 10
+Pickup Truck CCC333 has been rented.
+
+1: Add Vehicle
+2: Add Customer
+3: Rent Vehicle
+4: Return Vehicle
+5: Display Available Vehicles
+6: Show Rental History
+0: Exit
+
+5
+|--------------------------------------------------------------------------------------------|
+| Type            | Plate        | Make         | Model        | Year   | Status             |
+|--------------------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------|
+
+1: Add Vehicle
+2: Add Customer
+3: Rent Vehicle
+4: Return Vehicle
+5: Display Available Vehicles
+6: Show Rental History
+0: Exit
+
+6
+RENT | Plate: AAA111 | Customer: George | Date: 2026-03-29 | Amount: $10.0
+RENT | Plate: CCC333 | Customer: George | Date: 2026-03-29 | Amount: $3.0
+RENT | Plate: BBB222 | Customer: Anne | Date: 2026-03-29 | Amount: $4.0
+RETURN | Plate: CCC333 | Customer: George | Date: 2026-03-29 | Amount: $5.0
+RENT | Plate: CCC333 | Customer: Anne | Date: 2026-03-29 | Amount: $10.0
+
+1: Add Vehicle
+2: Add Customer
+3: Rent Vehicle
+4: Return Vehicle
+5: Display Available Vehicles
+6: Show Rental History
+0: Exit
