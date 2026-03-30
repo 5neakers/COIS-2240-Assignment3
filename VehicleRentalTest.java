@@ -14,7 +14,7 @@ public class VehicleRentalTest {
 
         // Testing valid plates as described in task 2 
         assertDoesNotThrow(() -> testVehicle.setLicensePlate("AAA100"));
-        assertEquals("AAA100", testVehicle.getLicensePlate()); //realized I mistyped plate here so had to correct that to AAA111
+        assertEquals("AAA100", testVehicle.getLicensePlate()); //realized I mistyped plate here so had to correct that to AAA100
         assertDoesNotThrow(() -> testVehicle.setLicensePlate("ABC567"));
         assertDoesNotThrow(() -> testVehicle.setLicensePlate("ZZZ999"));
         assertThrows(IllegalArgumentException.class, () -> testVehicle.setLicensePlate("")); //test for empty string
@@ -22,7 +22,6 @@ public class VehicleRentalTest {
         assertThrows(IllegalArgumentException.class, () -> testVehicle.setLicensePlate("AAA1000")); // Test case for too long 
         assertThrows(IllegalArgumentException.class, () -> testVehicle.setLicensePlate("ZZZ99"));   //test case for too short of a plate
     }
-    public class testSingletonRentalSystem {
 
     	@Test
         void testSingletonRentalSystem() throws Exception {
@@ -39,8 +38,7 @@ public class VehicleRentalTest {
             assertNotNull(instance, "RentalSystem.getInstance() should not return null");
 
         }
-    }
-    public class testLicensePlate{
+ 
     	@Test
     	void testRentAndReturnVehicle() {
     	    Car car = new Car("Honda", "CRV", 2019, 5); //my gf car :)
@@ -67,5 +65,4 @@ public class VehicleRentalTest {
     	    boolean returnAgainResult = system.returnVehicle(car, customer, null, 0.0);  //trying to return same vehicle should result in fail aka false
     	    assertFalse(returnAgainResult, "given we are returning here should expect false");
     	}
-}
 }

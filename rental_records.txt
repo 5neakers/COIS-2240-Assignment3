@@ -11,3 +11,5 @@ RENT | Plate: BOO413 | Customer: Steve French | Date: null | Amount: $100.0
 RETURN | Plate: BOO413 | Customer: Steve French | Date: null | Amount: $0.0
 RENT | Plate: BOO413 | Customer: Steve French | Date: null | Amount: $100.0
 RETURN | Plate: BOO413 | Customer: Steve French | Date: null | Amount: $0.0
+RENT | Plate: BOO413 | Customer: Steve French | Date: null | Amount: $100.0
+RETURN | Plate: BOO413 | Customer: Steve French | Date: null | Amount: $0.0
